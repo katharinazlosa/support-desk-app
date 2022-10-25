@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 //routes
 app.use('/api/users', require('./routes/userRoutes'))
-// app.use('/api/tickets', require('./routes/ticketRoutes'))
+app.use(errorHandler)
 
 //serve frontend
 if(process.env.NODE_ENV === 'production') {
@@ -38,6 +38,5 @@ if(process.env.NODE_ENV === 'production') {
     })
 }
 
-app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
